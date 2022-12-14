@@ -1,7 +1,8 @@
 import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output, exit } from 'node:process';
 
-import { getUsername } from './get-username.js';
+import { getUsername } from '../get-username.js';
+import { recognizeCommand } from './recognize-command.js';
 
 const initializeFileManager = () => {
     const rl = readline.createInterface({input, output, prompt: '> ', crlfDelay: Infinity });
@@ -18,6 +19,8 @@ const initializeFileManager = () => {
         if (input === '.exit') {
             rl.close();
         }
+
+        recognizeCommand(input);
 
         rl.prompt();
     });

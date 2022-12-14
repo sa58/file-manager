@@ -1,0 +1,5 @@
+const SPACE = ' ';
+
+export {
+    SPACE
+}

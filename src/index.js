@@ -1,4 +1,4 @@
-import { initializeFileManager } from './initialize-file-manager.js';
+import { initializeFileManager } from './app/initialize-file-manager.js';
 
 try {
     initializeFileManager();
