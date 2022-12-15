@@ -1,6 +1,6 @@
 import { argv } from 'node:process';
 
-import { NotAuthorizedException } from './exception/not-authorized.js';
+// import { NotAuthorizedException } from './error/not-authorized.js';
 
 const USER_ARGUMENT = '--username';
 const SEPARATOR = '=';
@@ -13,9 +13,9 @@ const getUsername = () => {
         const [_, name] = nameArgument.split(SEPARATOR);
         // console.log(name)
         
-        if (!name) {
-            throw new NotAuthorizedException();
-        }
+        // if (!name) {
+        //     throw new NotAuthorizedException();
+        // }
 
         return name;
     } catch (exc) {

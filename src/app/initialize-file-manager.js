@@ -1,12 +1,11 @@
-import * as readline from 'node:readline/promises';
-import { stdin as input, stdout as output, exit } from 'node:process';
+import { exit, chdir } from 'node:process';
 
 import { getUsername } from '../get-username.js';
 import { recognizeCommand } from './recognize-command.js';
+import { printCWD } from '../lib/print-cwd.js';
+import { getHomeDirectory } from '../lib/get-home-directory.js';
 
-const initializeFileManager = () => {
-    const rl = readline.createInterface({input, output, prompt: '> ', crlfDelay: Infinity });
-
+const initializeFileManager = (rl) => {
     const username = getUsername();
 
     const sayBy = () => {
@@ -14,13 +13,20 @@ const initializeFileManager = () => {
     }
 
     rl.write(`Welcome to the File Manager, ${username}! \n`);
+    chdir(getHomeDirectory());
+    printCWD();
 
     rl.on('line', async (input) => {
         if (input === '.exit') {
             rl.close();
         }
 
-        recognizeCommand(input);
+        try {
+            recognizeCommand(input);
+        } catch (err) {
+            console.log(`${err.message} \n`);
+            rl.prompt();
+        }
 
         rl.prompt();
     });

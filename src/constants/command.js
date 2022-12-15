@@ -1,28 +1,28 @@
-import { addFile } from '../lib/files/add-file.js'
+import { validateAdd } from '../lib/files/validate-add.js'
 import {SPACE} from './space.js';
 
 const commands = {
-    UP: {name: `up`.getSpace, func: addFile},
-    CD: {name: `cd`.getSpace, func: addFile},
-    LS: {name: `ls`, func: addFile},
+    UP: {name: `up`.getSpace, func: validateAdd},
+    CD: {name: `cd`.getSpace, func: validateAdd},
+    LS: {name: `ls`, func: validateAdd},
     
-    CAT: {name: `cat${SPACE}`, func: addFile},
-    ADD: {name: `add${SPACE}`, func: addFile},
-    RN: {name: `rn${SPACE}`, func: addFile},
-    CP: {name: `cp${SPACE}`, func: addFile},
-    MV: {name: `mv${SPACE}`, func: addFile},
-    RM: {name: `rm${SPACE}`, func: addFile},
+    CAT: {name: `cat${SPACE}`, func: validateAdd},
+    ADD: {name: `add${SPACE}`, func: validateAdd},
+    RN: {name: `rn${SPACE}`, func: validateAdd},
+    CP: {name: `cp${SPACE}`, func: validateAdd},
+    MV: {name: `mv${SPACE}`, func: validateAdd},
+    RM: {name: `rm${SPACE}`, func: validateAdd},
 
-    COMPRESS: {name: `compress${SPACE}`, func: addFile},
-    DECOMPRESS: {name: `decompress${SPACE}`, func: addFile},
-    HASH: {name: `hash${SPACE}`, func: addFile},
+    COMPRESS: {name: `compress${SPACE}`, func: validateAdd},
+    DECOMPRESS: {name: `decompress${SPACE}`, func: validateAdd},
+    HASH: {name: `hash${SPACE}`, func: validateAdd},
 
-    OS: {name: `os`, func: addFile},
-    EOL: {name: `EOL`, func: addFile},
-    CPUS: {name: `cpus`, func: addFile},
-    HOMEDIR: {name: `homedir`, func: addFile},
-    USERNAME: {name: `username`, func: addFile},
-    ARCH:  {name: `architecture`, func: addFile},
+    OS: {name: `os`, func: validateAdd},
+    EOL: {name: `EOL`, func: validateAdd},
+    CPUS: {name: `cpus`, func: validateAdd},
+    HOMEDIR: {name: `homedir`, func: validateAdd},
+    USERNAME: {name: `username`, func: validateAdd},
+    ARCH:  {name: `architecture`, func: validateAdd},
 };
 
 export { commands }
