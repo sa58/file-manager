@@ -1,6 +1,6 @@
 import { exit, chdir } from 'node:process';
 
-import { getUsername } from '../get-username.js';
+import { getUsername } from './get-username.js';
 import { recognizeCommand } from './recognize-command.js';
 import { printCWD } from '../lib/print-cwd.js';
 import { getHomeDirectory } from '../lib/get-home-directory.js';
@@ -22,9 +22,14 @@ const initializeFileManager = (rl) => {
         }
 
         try {
-            recognizeCommand(input);
+            await recognizeCommand(input);
         } catch (err) {
-            console.log(`${err.message} \n`);
+            if (err.name !== 'INVALID' || err.name !== 'FAILED') {
+                console.log('Operation failed');
+            } else {
+                console.log(err.message);
+            }
+
             rl.prompt();
         }
 

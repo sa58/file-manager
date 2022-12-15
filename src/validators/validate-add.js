@@ -1,6 +1,6 @@
-import { InvalidInputError } from '../../error/invalid-input-error.js';
-import { findDoubleQuotes } from '../find-double-quotes.js';
-import { add } from '../../commands/add.js';
+import { InvalidInputError } from '../error/invalid-input-error.js';
+import { findDoubleQuotes } from '../lib/find-double-quotes.js';
+import { add } from '../commands/add.js';
 
 const validateAdd = async (input) => {
     try {
@@ -30,8 +30,8 @@ const validateAdd = async (input) => {
         if (result && result.length > 1) {
             throw new OpearationFailedError();
         }
-    } catch (exc) {
-        throw exc;
+    } catch (err) {
+        throw err;
     }
 }
 
