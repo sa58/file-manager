@@ -6,14 +6,13 @@ import { printCWD } from '../lib/print-cwd.js';
 const rn = async (oldFileName, newFileName) => {
     try {
         const pathToOldFile = resolve(getCWD(), oldFileName);
-        
+
         await access(pathToOldFile);
         if (!await (await stat(pathToOldFile)).isFile()) {
             throw new OpearationFailedError();
         }
 
-        const newName = newFileName;
-        await rename(pathToOldFile, newName);
+        await rename(pathToOldFile, newFileName);
 
         printCWD();
     } catch(err) {

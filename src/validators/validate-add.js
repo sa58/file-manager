@@ -9,7 +9,7 @@ const validateAdd = async (input) => {
         if (result === null) {
             const [_, fileName] = input.split(`add `);
 
-            if(fileName) {
+            if (fileName) {
                 await add(fileName);
             } else {
                 throw new InvalidInputError();

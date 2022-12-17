@@ -24,10 +24,11 @@ const initializeFileManager = (rl) => {
         try {
             await recognizeCommand(input);
         } catch (err) {
-            if (err.name !== 'INVALID' || err.name !== 'FAILED') {
-                console.log('Operation failed');
-            } else {
+            // console.log(err.name !== 'INVALID');
+            if (err.name === 'INVALID' || err.name === 'FAILED') {
                 console.log(err.message);
+            } else {
+                console.log('===Operation failed');
             }
 
             rl.prompt();
