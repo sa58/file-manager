@@ -1,5 +1,6 @@
 import { validateAdd } from '../validators/validate-add.js';
 import { validateRename } from '../validators/validate-rename.js';
+import { validateCp } from '../validators/validate-cp.js';
 
 import {SPACE} from './space.js';
 
@@ -11,7 +12,7 @@ const commands = {
     CAT: {name: `cat${SPACE}`, func: validateAdd},
     ADD: {name: `add${SPACE}`, func: validateAdd},
     RN: {name: `rn${SPACE}`, func: validateRename},
-    CP: {name: `cp${SPACE}`, func: validateAdd},
+    CP: {name: `cp${SPACE}`, func: validateCp},
     MV: {name: `mv${SPACE}`, func: validateAdd},
     RM: {name: `rm${SPACE}`, func: validateAdd},
 
