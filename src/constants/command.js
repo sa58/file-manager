@@ -3,6 +3,7 @@ import { validateRn } from '../validators/validate-rn.js';
 import { validateCp } from '../validators/validate-cp.js';
 import { validateMv } from '../validators/validate-mv.js';
 import { validateRm } from '../validators/validate-rm.js';
+import { validateCat } from '../validators/validate-cat.js';
 import {SPACE} from './space.js';
 
 const commands = {
@@ -10,7 +11,7 @@ const commands = {
     CD: {name: `cd`.getSpace, func: validateAdd},
     LS: {name: `ls`, func: validateAdd},
     
-    CAT: {name: `cat${SPACE}`, func: validateAdd},
+    CAT: {name: `cat${SPACE}`, func: validateCat},
     ADD: {name: `add${SPACE}`, func: validateAdd},
     RN: {name: `rn${SPACE}`, func: validateRn},
     CP: {name: `cp${SPACE}`, func: validateCp},

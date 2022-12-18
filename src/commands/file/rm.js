@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import { access, unlink } from 'fs/promises';
-import { getCWD } from '../lib/get-cwd.js';
-import { printCWD } from '../lib/print-cwd.js';
+import { getCWD } from '../../lib/get-cwd.js';
+import { printCWD } from '../../lib/print-cwd.js';
 
 const rm = async (pathToFile) => {
     try {

@@ -1,16 +1,16 @@
 import { InvalidInputError } from '../error/invalid-input-error.js';
 import { findDoubleQuotes } from '../lib/find-double-quotes.js';
-import { add } from '../commands/file/add.js';
+import { cat } from '../commands/file/cat.js';
 
-const validateAdd = async (input) => {
+const validateCat = async (input) => {
     try {
         const result = findDoubleQuotes(input);
 
         if (result === null) {
-            const [_, fileName] = input.split(`add `);
+            const [_, fileName] = input.split(`cat `);
 
             if (fileName) {
-                await add(fileName);
+                await cat(fileName);
             } else {
                 throw new InvalidInputError();
             }
@@ -21,7 +21,7 @@ const validateAdd = async (input) => {
             const fileNameNoQuotes = fileName.replace(/"/g, '');
 
             if (fileNameNoQuotes) {
-                await add(fileNameNoQuotes);
+                await cat(fileNameNoQuotes);
             } else {
                 throw new InvalidInputError();
             } 
@@ -36,5 +36,5 @@ const validateAdd = async (input) => {
 }
 
 export {
-    validateAdd
+    validateCat
 }

@@ -1,7 +1,7 @@
 import { createWriteStream } from 'fs';
 import { resolve } from 'path';
-import { getCWD } from '../lib/get-cwd.js';
-import { printCWD } from '../lib/print-cwd.js';
+import { getCWD } from '../../lib/get-cwd.js';
+import { printCWD } from '../../lib/print-cwd.js';
 
 const add = async (fileName) => {
     try {

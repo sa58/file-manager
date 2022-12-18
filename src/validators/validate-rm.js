@@ -1,6 +1,6 @@
 import { InvalidInputError } from '../error/invalid-input-error.js';
 import { findDoubleQuotes } from '../lib/find-double-quotes.js';
-import { rm } from '../commands/rm.js';
+import { rm } from '../commands/file/rm.js';
 
 const validateRm = async (input) => {
     try {

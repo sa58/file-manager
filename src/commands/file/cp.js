@@ -1,8 +1,8 @@
 import { basename, extname, resolve } from 'path';
 import { createReadStream, createWriteStream } from 'fs';
 import { access } from 'fs/promises';
-import { getCWD } from '../lib/get-cwd.js';
-import { printCWD } from '../lib/print-cwd.js';
+import { getCWD } from '../../lib/get-cwd.js';
+import { printCWD } from '../../lib/print-cwd.js';
 
 const cp = async (pathToFile, pathToNewDirectory) => {
     try {

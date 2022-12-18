@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import { access, rename, stat } from 'fs/promises';
-import { getCWD } from '../lib/get-cwd.js';
-import { printCWD } from '../lib/print-cwd.js';
+import { getCWD } from '../../lib/get-cwd.js';
+import { printCWD } from '../../lib/print-cwd.js';
 
 const rn = async (oldFileName, newFileName) => {
     try {

@@ -1,8 +1,8 @@
 import { resolve, basename } from 'path';
 import { access, stat, unlink } from 'fs/promises';
 import { createReadStream, createWriteStream } from 'fs';
-import { getCWD } from '../lib/get-cwd.js';
-import { printCWD } from '../lib/print-cwd.js';
+import { getCWD } from '../../lib/get-cwd.js';
+import { printCWD } from '../../lib/print-cwd.js';
 
 const mv = async (pathFrom, pathTo) => {
     try {
