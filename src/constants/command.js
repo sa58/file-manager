@@ -1,7 +1,8 @@
 import { validateAdd } from '../validators/validate-add.js';
-import { validateRename } from '../validators/validate-rename.js';
+import { validateRn } from '../validators/validate-rn.js';
 import { validateCp } from '../validators/validate-cp.js';
-
+import { validateMv } from '../validators/validate-mv.js';
+import { validateRm } from '../validators/validate-rm.js';
 import {SPACE} from './space.js';
 
 const commands = {
@@ -11,10 +12,10 @@ const commands = {
     
     CAT: {name: `cat${SPACE}`, func: validateAdd},
     ADD: {name: `add${SPACE}`, func: validateAdd},
-    RN: {name: `rn${SPACE}`, func: validateRename},
+    RN: {name: `rn${SPACE}`, func: validateRn},
     CP: {name: `cp${SPACE}`, func: validateCp},
-    MV: {name: `mv${SPACE}`, func: validateAdd},
-    RM: {name: `rm${SPACE}`, func: validateAdd},
+    MV: {name: `mv${SPACE}`, func: validateMv},
+    RM: {name: `rm${SPACE}`, func: validateRm},
 
     COMPRESS: {name: `compress${SPACE}`, func: validateAdd},
     DECOMPRESS: {name: `decompress${SPACE}`, func: validateAdd},

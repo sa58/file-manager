@@ -1,16 +1,16 @@
 import { InvalidInputError } from '../error/invalid-input-error.js';
 import { findDoubleQuotes } from '../lib/find-double-quotes.js';
-import { cp } from '../commands/cp.js';
+import { rn } from '../commands/rn.js';
 
-const validateCp = async (input) => {
+const validateRn = async (input) => {
     try {
         const result = findDoubleQuotes(input);
 
-        if(result === null) {
-            const [_, pathToFile, newPathFile] = input.split(' ');
-
-            if (pathToFile && newPathFile) {
-                await cp(pathToFile, newPathFile);
+        if (result === null) {
+            const [_, pathToFile, newFileName] = input.split(' ');
+            
+            if (pathToFile && newFileName) {
+                await rn(pathToFile, newFileName);
             } else {
                 throw new InvalidInputError();
             }
@@ -22,33 +22,33 @@ const validateCp = async (input) => {
 
             if (chunk_2 !== '') {
                 const pathToFile = match.trim().replace(/"/g, '');
-                const newPathFile = chunk_2.trim();
+                const newFileName = chunk_2.trim();
 
-                if (pathToFile && newPathFile) {
-                    await cp(pathToFile, newPathFile);
+                if (pathToFile && newFileName) {
+                    await rn(pathToFile, newFileName);
                 } else {
                     throw new InvalidInputError();
                 }
             }
 
             if (chunk_2 === '') {
-                const pathToFile = chunk_1.replace('cp', '').trim();
-                const newPathFile = match.trim().replace(/"/g, '');
+                const pathToFile = chunk_1.replace('rn', '').trim();
+                const newFileName = match.trim().replace(/"/g, '');
 
-                if (pathToFile && newPathFile) {
-                    await cp(pathToFile, newPathFile);
+                if (pathToFile && newFileName) {
+                    await rn(pathToFile, newFileName);
                 } else {
                     throw new InvalidInputError();
                 }
             }
         }
 
-        if(result && result.length === 2) {
+        if (result && result.length === 2) {
             const pathToFile = result[0].replace(/"/g, '');
-            const newPathFile = result[1].replace(/"/g, '');
+            const newFileName = result[1].replace(/"/g, '');
 
-            if (pathToFile && newPathFile) {
-                await cp(pathToFile, newPathFile);
+            if (pathToFile && newFileName) {
+                await rn(pathToFile, newFileName);
             } else {
                 throw new InvalidInputError();
             }
@@ -64,5 +64,5 @@ const validateCp = async (input) => {
 }
 
 export {
-    validateCp
+    validateRn
 }

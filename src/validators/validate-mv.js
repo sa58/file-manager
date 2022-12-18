@@ -1,54 +1,54 @@
 import { InvalidInputError } from '../error/invalid-input-error.js';
 import { findDoubleQuotes } from '../lib/find-double-quotes.js';
-import { rn } from '../commands/rn.js';
+import { mv } from '../commands/mv.js';
 
-const validateRename = async (input) => {
+const validateMv = async (input) => {
     try {
         const result = findDoubleQuotes(input);
 
-        if (result === null) {
-            const [_, pathToFile, newFileName] = input.split(' ');
-            
-            if (pathToFile && newFileName) {
-                await rn(pathToFile, newFileName);
+        if(result === null) {
+            const [_, pathToFile, newPathFile] = input.split(' ');
+
+            if (pathToFile && newPathFile) {
+                await mv(pathToFile, newPathFile);
             } else {
                 throw new InvalidInputError();
             }
         }
 
-        if(result && result.length === 1) {
+        if (result && result.length === 1) {
             const [match] = result;
             const [chunk_1, chunk_2] = input.split(match);
 
             if (chunk_2 !== '') {
                 const pathToFile = match.trim().replace(/"/g, '');
-                const newFileName = chunk_2.trim();
+                const newPathFile = chunk_2.trim();
 
-                if (pathToFile && newFileName) {
-                    await rn(pathToFile, newFileName);
+                if (pathToFile && newPathFile) {
+                    await mv(pathToFile, newPathFile);
                 } else {
                     throw new InvalidInputError();
                 }
             }
 
             if (chunk_2 === '') {
-                const pathToFile = chunk_1.replace('rn', '').trim();
-                const newFileName = match.trim().replace(/"/g, '');
+                const pathToFile = chunk_1.replace('mv', '').trim();
+                const newPathFile = match.trim().replace(/"/g, '');
 
-                if (pathToFile && newFileName) {
-                    await rn(pathToFile, newFileName);
+                if (pathToFile && newPathFile) {
+                    await mv(pathToFile, newPathFile);
                 } else {
                     throw new InvalidInputError();
                 }
             }
         }
 
-        if (result && result.length === 2) {
+        if(result && result.length === 2) {
             const pathToFile = result[0].replace(/"/g, '');
-            const newFileName = result[1].replace(/"/g, '');
+            const newPathFile = result[1].replace(/"/g, '');
 
-            if (pathToFile && newFileName) {
-                await rn(pathToFile, newFileName);
+            if (pathToFile && newPathFile) {
+                await mv(pathToFile, newPathFile);
             } else {
                 throw new InvalidInputError();
             }
@@ -64,5 +64,5 @@ const validateRename = async (input) => {
 }
 
 export {
-    validateRename
+    validateMv
 }

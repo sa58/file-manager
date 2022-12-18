@@ -29,6 +29,7 @@ const initializeFileManager = (rl) => {
                 console.log(err.message);
             } else {
                 console.log('===Operation failed');
+                console.log(err);
             }
 
             rl.prompt();
