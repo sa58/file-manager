@@ -6,6 +6,7 @@ import { validateRm } from '../validators/validate-rm.js';
 import { validateCat } from '../validators/validate-cat.js';
 import { validateCompress } from '../validators/validate-compress.js';
 import { validateDecompress } from '../validators/validate-decompress.js';
+import { validateHash } from '../validators/validate-hash.js';
 import {SPACE} from './space.js';
 
 const commands = {
@@ -22,7 +23,7 @@ const commands = {
 
     COMPRESS: {name: `compress${SPACE}`, func: validateCompress},
     DECOMPRESS: {name: `decompress${SPACE}`, func: validateDecompress},
-    HASH: {name: `hash${SPACE}`, func: validateAdd},
+    HASH: {name: `hash${SPACE}`, func: validateHash},
 
     OS: {name: `os`, func: validateAdd},
     EOL: {name: `EOL`, func: validateAdd},
