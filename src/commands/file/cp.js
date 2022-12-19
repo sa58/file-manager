@@ -1,6 +1,7 @@
 import { basename, extname, resolve } from 'path';
 import { createReadStream, createWriteStream } from 'fs';
 import { access } from 'fs/promises';
+import { pipeline } from 'stream/promises';
 import { getCWD } from '../../lib/get-cwd.js';
 import { printCWD } from '../../lib/print-cwd.js';
 
@@ -25,13 +26,7 @@ const cp = async (pathToFile, pathToNewDirectory) => {
         const read = createReadStream(fileFrom);
         const write = createWriteStream(fileDest);
 
-        write.on('error', err => {
-            if (err.code === 'EPERM') {
-                console.log('Operation failed. No permission');
-            }
-        })
-
-        read.pipe(write);
+        await pipeline(read, write);
 
         printCWD();
     } catch(err) {
