@@ -10,13 +10,10 @@ npm start  -- --username=ann
 ```
 
 ## Usage
-#### up
+#### nwd
 ```
 up
-```
 
-#### cd
-```
 cd d:
 cd d:\
 cd "${folder with spaces}"
@@ -24,12 +21,10 @@ cd folder
 cd Users/username
 cd ..
 cd .
-```
 
-#### ls
-```
 ls
 ```
+
 
 #### os
 ```
@@ -40,19 +35,36 @@ os --username
 os --architecture
 ```
 
-#### add
+#### files
 ```
 add test.txt
 add "test 1.txt"
 add ../test_2.txt
 add d:\1\test.txt
+
+cat test.txt
+cat "test 1.txt"
+cat d:\1\test.txt
+
+cp test.txt .
+cp test.txt ..
+cp "test 1.txt" d:\1
+
+rn test.txt test3.txt
+rn test3.txt "test 3.txt"
+rn "test 3.txt" "test 4.txt"
+
+mv d:\1\test.txt c:\
+mv "test 4.txt" ../
+mv "test.txt" .
+
+rm d:\1\2.txt
+rm "test 4.txt"
+rm test_2.txt
 ```
 
 
 #### compress / decompress
 ```
-add test.txt
-add "test 1.txt"
-add ../test_2.txt
-add d:\1\test.txt
+
 ```
