@@ -16,7 +16,7 @@ const compress = async (pathToFile, pathToDest) => {
 
         const fileName = basename(from);
         const to =  resolve(pathToDest, `${fileName}.br`);
-        console.log(to)
+
         const src = createReadStream(from);
         const dest = createWriteStream(to);
         const compressViaBrotli = createBrotliCompress();

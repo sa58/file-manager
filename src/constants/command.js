@@ -10,6 +10,8 @@ import { validateHash } from '../validators/validate-hash.js';
 import { up } from '../commands/nwd/up.js';
 import { ls } from '../commands/nwd/ls.js';
 import { validateCd } from '../validators/validate-cd.js';
+import { validateOs } from '../validators/validate-os.js';
+
 import {SPACE} from './space.js';
 
 const commands = {
@@ -28,12 +30,7 @@ const commands = {
     DECOMPRESS: {name: `decompress${SPACE}`, func: validateDecompress},
     HASH: {name: `hash${SPACE}`, func: validateHash},
 
-    OS: {name: `os`, func: validateAdd},
-    EOL: {name: `EOL`, func: validateAdd},
-    CPUS: {name: `cpus`, func: validateAdd},
-    HOMEDIR: {name: `homedir`, func: validateAdd},
-    USERNAME: {name: `username`, func: validateAdd},
-    ARCH:  {name: `architecture`, func: validateAdd},
+    OS: {name: `os `, func: validateOs}
 };
 
 export { commands }

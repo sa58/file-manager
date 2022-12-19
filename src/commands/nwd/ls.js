@@ -9,8 +9,6 @@ const ls = async () => {
         const arr = [];
 
         for (const file of directory) {
-            // console.log((await lstat(file)).isSymbolicLink());
-
             if((await lstat(file)).isSymbolicLink()) {
                 arr.push({name: file, type: 'link'})
             }
@@ -25,6 +23,7 @@ const ls = async () => {
         }
     
         console.table(arr);
+
         printCWD();
     } catch(err) {
         throw err;

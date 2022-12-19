@@ -8,8 +8,6 @@ const cd = async (dir) => {
     try {
         const to = resolve(getCWD(), dir);
 
-        console.log('to', to);
-
         await access(to);
 
         if (!await (await stat(to)).isDirectory()) {

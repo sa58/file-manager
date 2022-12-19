@@ -11,7 +11,7 @@ const recognizeCommand = async (input) => {
             }
         })
 
-        if(commandForExecution) {
+        if (commandForExecution) {
            await commandForExecution.func(input);
         } else {
             throw new InvalidInputError();
