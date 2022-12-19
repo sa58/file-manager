@@ -15,10 +15,10 @@ const os = async (command) => {
             },
             'homedir': () => console.log(homedir()),
             'username': () => console.log(userInfo().username),
-            'arch': () => console.log(arch()),
+            'architecture': () => console.log(arch()),
         }
 
-        if(map[command.toLowerCase()]) {
+        if (map[command.toLowerCase()]) {
             map[command.toLowerCase()]();
             printCWD();
         } else {

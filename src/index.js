@@ -6,9 +6,8 @@ const rl = readline.createInterface({input, output, prompt: '> ', crlfDelay: Inf
 
 try {
     initializeFileManager(rl);
-} catch(exc) {
-    console.log('---------------------------------------------------')
-    console.log(exc);
+} catch(err) {
+    console.log(`Operation failed. ${err.message}`);
 
     rl.prompt();
 }
