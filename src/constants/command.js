@@ -7,12 +7,15 @@ import { validateCat } from '../validators/validate-cat.js';
 import { validateCompress } from '../validators/validate-compress.js';
 import { validateDecompress } from '../validators/validate-decompress.js';
 import { validateHash } from '../validators/validate-hash.js';
+import { up } from '../commands/nwd/up.js';
+import { ls } from '../commands/nwd/ls.js';
+import { validateCd } from '../validators/validate-cd.js';
 import {SPACE} from './space.js';
 
 const commands = {
-    UP: {name: `up`.getSpace, func: validateAdd},
-    CD: {name: `cd`.getSpace, func: validateAdd},
-    LS: {name: `ls`, func: validateAdd},
+    UP: {name: 'up', func: up},
+    CD: {name: `cd${SPACE}`, func: validateCd},
+    LS: {name: 'ls', func: ls},
     
     CAT: {name: `cat${SPACE}`, func: validateCat},
     ADD: {name: `add${SPACE}`, func: validateAdd},

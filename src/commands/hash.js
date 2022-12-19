@@ -12,10 +12,10 @@ const hash = async (pathToFile) => {
         const f = resolve(getCWD(), pathToFile);
         await access(f);
 
-        const r = createReadStream(f);
+        const readable = createReadStream(f);
         const hash = createHash('sha256');
 
-        await pipeline(r, hash);
+        await pipeline(readable, hash);
 
         for await (const chunk of hash) {
             console.log(chunk.toString('hex'));
