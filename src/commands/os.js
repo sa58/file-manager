@@ -1,5 +1,5 @@
 import { arch, EOL, homedir, cpus, userInfo } from 'os';
-import { InvalidInputError } from '../error/invalid-input-error.js';
+import { OpearationFailedError } from '../error/opearation-failed-error.js';
 import { printCWD } from '../lib/print-cwd.js';
 
 const os = async (command) => {
@@ -21,7 +21,7 @@ const os = async (command) => {
         map[command.toLowerCase()]();
         printCWD();
     } else {
-        throw new InvalidInputError();
+        throw new OpearationFailedError();
     }
 }
 

@@ -12,11 +12,7 @@ const initializeFileManager = (rl) => {
         rl.write(`Thank you for using File Manager, ${username}!`);
     }
 
-    rl.write(`Welcome to the File Manager, ${username}! \n`);
-    chdir(getHomeDirectory());
-    printCWD();
-
-    rl.on('line', async (input) => {
+    const readLine = async (input) => {
         if (input === '.exit') {
             rl.close();
         }
@@ -34,7 +30,13 @@ const initializeFileManager = (rl) => {
         }
 
         rl.prompt();
-    });
+    }
+
+    rl.write(`Welcome to the File Manager, ${username}! \n`);
+    chdir(getHomeDirectory());
+    printCWD();
+
+    rl.on('line', readLine);
 
     rl.prompt();
 
