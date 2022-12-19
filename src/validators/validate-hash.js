@@ -16,7 +16,7 @@ const validateHash = async (input) => {
             await hash(fileName);
         }
 
-        if(result !== null && result.length > 1) throw new OpearationFailedError();
+        if(result !== null && result.length > 1) throw new InvalidInputError();
 
     } catch (err) {
         throw err;
