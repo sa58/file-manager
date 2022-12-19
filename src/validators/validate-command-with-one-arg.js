@@ -27,7 +27,7 @@ const validateCommandWithOneArg = async (input, command, commandName) => {
         }
 
         if (result && result.length > 1) {
-            throw new OpearationFailedError();
+            throw new InvalidInputError();
         }
     } catch (err) {
         throw err;
