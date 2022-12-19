@@ -6,25 +6,21 @@ import { getCWD } from '../../lib/get-cwd.js';
 import { printCWD } from '../../lib/print-cwd.js';
 
 const cat = async (filePath) => {
-    try {
-        const path = resolve(getCWD(), filePath);
-        await access(path);
+    const path = resolve(getCWD(), filePath);
+    await access(path);
 
-        if(!(await stat(path)).isFile()) throw new OpearationFailedError();
+    if(!(await stat(path)).isFile()) throw new OpearationFailedError();
 
-        const readable = createReadStream(path, {encoding: 'utf8'});
-        readable.on('error', () => {
-            console.log('Operation failed');
-        })
+    const readable = createReadStream(path, {encoding: 'utf8'});
+    readable.on('error', () => {
+        console.log('Operation failed');
+    })
 
-        for await (const chunk of readable) {
-            console.log(chunk);
-        }
-
-        printCWD();
-    } catch(err) {
-        throw err;
+    for await (const chunk of readable) {
+        console.log(chunk);
     }
+
+    printCWD();
 }
 
 export {

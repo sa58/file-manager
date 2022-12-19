@@ -8,23 +8,19 @@ import { printCWD } from '../lib/print-cwd.js';
 import { createHash } from 'crypto';
 
 const hash = async (pathToFile) => {
-    try {
-        const f = resolve(getCWD(), pathToFile);
-        await access(f);
+    const f = resolve(getCWD(), pathToFile);
+    await access(f);
 
-        const readable = createReadStream(f);
-        const hash = createHash('sha256');
+    const readable = createReadStream(f);
+    const hash = createHash('sha256');
 
-        await pipeline(readable, hash);
+    await pipeline(readable, hash);
 
-        for await (const chunk of hash) {
-            console.log(chunk.toString('hex'));
-        }
-
-        printCWD();
-    } catch(err) {
-        throw err;
+    for await (const chunk of hash) {
+        console.log(chunk.toString('hex'));
     }
+
+    printCWD();
 }
 
 export {

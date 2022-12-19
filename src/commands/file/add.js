@@ -21,15 +21,11 @@ async function createFile(pathToFile) {
 };
 
 const add = async (fileName) => {
-    try {
-        const pathToFile = resolve(getCWD(), fileName);
+    const pathToFile = resolve(getCWD(), fileName);
 
-        await createFile(pathToFile)
-            
-        printCWD();
-    } catch(err) {
-        throw err;
-    }
+    await createFile(pathToFile)
+        
+    printCWD();
 }
 
 export {

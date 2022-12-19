@@ -5,20 +5,16 @@ import { getCWD } from '../../lib/get-cwd.js';
 import { printCWD } from '../../lib/print-cwd.js';
 
 const rn = async (oldFileName, newFileName) => {
-    try {
-        const pathToOldFile = resolve(getCWD(), oldFileName);
+    const pathToOldFile = resolve(getCWD(), oldFileName);
 
-        await access(pathToOldFile);
-        if (!(await stat(pathToOldFile)).isFile()) {
-            throw new OpearationFailedError();
-        }
-
-        await rename(pathToOldFile, newFileName);
-
-        printCWD();
-    } catch(err) {
-        throw err;
+    await access(pathToOldFile);
+    if (!(await stat(pathToOldFile)).isFile()) {
+        throw new OpearationFailedError();
     }
+
+    await rename(pathToOldFile, newFileName);
+
+    printCWD();
 }
 
 export {

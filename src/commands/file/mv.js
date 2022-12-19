@@ -7,29 +7,25 @@ import { getCWD } from '../../lib/get-cwd.js';
 import { printCWD } from '../../lib/print-cwd.js';
 
 const mv = async (pathFrom, pathTo) => {
-    try {
-        const from = resolve(getCWD(), pathFrom);
+    const from = resolve(getCWD(), pathFrom);
 
-        await access(from);
-        if(!(await stat(from)).isFile()) throw new OpearationFailedError();
+    await access(from);
+    if(!(await stat(from)).isFile()) throw new OpearationFailedError();
 
-        const fromFilePath = basename(from);
+    const fromFilePath = basename(from);
 
-        let to = resolve(getCWD(), pathTo, fromFilePath);
+    let to = resolve(getCWD(), pathTo, fromFilePath);
 
-        const r = createReadStream(from);
-        const w = createWriteStream(to);
+    const r = createReadStream(from);
+    const w = createWriteStream(to);
 
-        await pipeline(r, w);
+    await pipeline(r, w);
 
-        if (from !== to) {
-            await unlink(from);
-        }
-
-        printCWD();
-    } catch(err) {
-        throw err;
+    if (from !== to) {
+        await unlink(from);
     }
+
+    printCWD();
 }
 
 export {

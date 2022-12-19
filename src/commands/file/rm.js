@@ -4,15 +4,11 @@ import { getCWD } from '../../lib/get-cwd.js';
 import { printCWD } from '../../lib/print-cwd.js';
 
 const rm = async (pathToFile) => {
-    try {
-        const fullPathToFile = resolve(getCWD(), pathToFile);
-        await access(fullPathToFile);
+    const fullPathToFile = resolve(getCWD(), pathToFile);
+    await access(fullPathToFile);
 
-        await unlink(fullPathToFile);
-        printCWD();
-    } catch(err) {
-        throw err;
-    }
+    await unlink(fullPathToFile);
+    printCWD();
 }
 
 export {
