@@ -7,26 +7,22 @@ import { getCWD } from '../../lib/get-cwd.js';
 import { printCWD } from '../../lib/print-cwd.js';
 
 const compress = async (pathToFile, pathToDest) => {
-    try {
-        const from = resolve(getCWD(), pathToFile);
-        await access(from);
+    const from = resolve(getCWD(), pathToFile);
+    await access(from);
 
-        const pathTo = resolve(pathToDest);
-        await access(pathTo);
+    const pathTo = resolve(pathToDest);
+    await access(pathTo);
 
-        const fileName = basename(from);
-        const to =  resolve(pathToDest, `${fileName}.br`);
+    const fileName = basename(from);
+    const to =  resolve(pathToDest, `${fileName}.br`);
 
-        const src = createReadStream(from);
-        const dest = createWriteStream(to);
-        const compressViaBrotli = createBrotliCompress();
+    const src = createReadStream(from);
+    const dest = createWriteStream(to);
+    const compressViaBrotli = createBrotliCompress();
 
-        await pipeline(src, compressViaBrotli, dest);
+    await pipeline(src, compressViaBrotli, dest);
 
-        printCWD();
-    } catch(err) {
-        throw err;
-    }
+    printCWD();
 }
 
 export {
