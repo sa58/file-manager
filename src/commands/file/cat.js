@@ -9,7 +9,7 @@ const cat = async (filePath) => {
         const path = resolve(getCWD(), filePath);
         await access(path);
 
-        if(!await (await stat(path)).isFile()) throw new OpearationFailedError();
+        if(!(await stat(path)).isFile()) throw new OpearationFailedError();
 
         const readable = createReadStream(path, {encoding: 'utf8'});
         readable.on('error', () => {

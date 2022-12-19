@@ -27,7 +27,7 @@ const initializeFileManager = (rl) => {
             if (err.name === 'INVALID' || err.name === 'FAILED') {
                 console.log(err.message);
             } else {
-                console.log(`Operation failed ${err.message}`);
+                console.log(`Operation failed. ${err.message}`);
             }
 
             rl.prompt();
