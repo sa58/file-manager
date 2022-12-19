@@ -4,6 +4,8 @@ import { validateCp } from '../validators/validate-cp.js';
 import { validateMv } from '../validators/validate-mv.js';
 import { validateRm } from '../validators/validate-rm.js';
 import { validateCat } from '../validators/validate-cat.js';
+import { validateCompress } from '../validators/validate-compress.js';
+import { validateDecompress } from '../validators/validate-decompress.js';
 import {SPACE} from './space.js';
 
 const commands = {
@@ -18,8 +20,8 @@ const commands = {
     MV: {name: `mv${SPACE}`, func: validateMv},
     RM: {name: `rm${SPACE}`, func: validateRm},
 
-    COMPRESS: {name: `compress${SPACE}`, func: validateAdd},
-    DECOMPRESS: {name: `decompress${SPACE}`, func: validateAdd},
+    COMPRESS: {name: `compress${SPACE}`, func: validateCompress},
+    DECOMPRESS: {name: `decompress${SPACE}`, func: validateDecompress},
     HASH: {name: `hash${SPACE}`, func: validateAdd},
 
     OS: {name: `os`, func: validateAdd},

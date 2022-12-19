@@ -8,7 +8,7 @@ try {
     initializeFileManager(rl);
 } catch(exc) {
     console.log('---------------------------------------------------')
-    console.log(exc.message);
+    console.log(exc);
 
     rl.prompt();
 }
