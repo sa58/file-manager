@@ -6,7 +6,7 @@ const validateCommandWithOneArg = async (input, command, commandName) => {
         const result = findDoubleQuotes(input);
 
         if (result === null) {
-            const [_, fileName] = input.split(`${commandName} `);
+            const [_, fileName] = input.split(`${commandName}`);
 
             if (fileName) {
                 await command(fileName.trim());

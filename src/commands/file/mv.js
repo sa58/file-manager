@@ -21,7 +21,10 @@ const mv = async (pathFrom, pathTo) => {
         const w = createWriteStream(to);
 
         await pipeline(r, w);
-        await unlink(from);
+
+        if (from !== to) {
+            await unlink(from);
+        }
 
         printCWD();
     } catch(err) {
