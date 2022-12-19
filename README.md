@@ -9,7 +9,7 @@ git checkout dev
 npm start  -- --username=ann
 ```
 
-## Usage
+## Usage examples
 #### nwd
 ```
 up
@@ -63,8 +63,14 @@ rm "test 4.txt"
 rm test_2.txt
 ```
 
+#### hash
+```
+hash test.txt
+hash d:\1\test.txt
+```
 
 #### compress / decompress
 ```
-
+compress d:\1\test.txt d:\1\
+decompress d:\1\test.txt.br c:\
 ```
