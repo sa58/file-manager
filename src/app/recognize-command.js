@@ -1,6 +1,5 @@
 import { commands } from '../constants/command.js';
 import { trimStart } from '../lib/trim-start.js';
-// import { OpearationFailedError } from '../error/opearation-failed-error.js';
 import { InvalidInputError } from '../error/invalid-input-error.js';
 
 const recognizeCommand = async (input) => {
